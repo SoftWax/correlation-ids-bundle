@@ -1,0 +1,60 @@
+{
+    "name": "softwax/correlation-ids-bundle",
+    "description": "This bundle adds correlation capabilities to your project.",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "SoftWax",
+            "homepage": "https://github.com/orgs/SoftWax/people"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "ext-gmp": "*",
+        "ext-json": "*",
+        "symfony/config": "^7.0",
+        "symfony/dependency-injection": "^7.0",
+        "symfony/event-dispatcher": "^7.0",
+        "symfony/http-kernel": "^7.0"
+    },
+    "require-dev": {
+        "monolog/monolog": "^3.0",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-deprecation-rules": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.4",
+        "phpstan/phpstan-strict-rules": "^1.6",
+        "phpunit/phpunit": "^11.1",
+        "softwax/coding-standard": "^1.0",
+        "symfony/console": "^7.0",
+        "symfony/messenger": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SoftWax\\CorrelationIds\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SoftWaxTests\\CorrelationIds\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "check": [
+            "@check:composer",
+            "@check:cs",
+            "@check:stan",
+            "@check:phpunit"
+        ],
+        "check:composer": "composer validate --no-check-all --strict --no-interaction",
+        "check:cs": "vendor/bin/phpcs",
+        "check:phpunit": "vendor/bin/phpunit",
+        "check:stan": "vendor/bin/phpstan analyze"
+    }
+}
